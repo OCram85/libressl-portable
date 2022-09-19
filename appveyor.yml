@@ -37,6 +37,6 @@ artifacts:
   - path: build
     type: zip
 
-  - path: apps\openssl\Release\openssl.exe
+  - path: apps\openssl\Release
     name: openssl
     type: zip
