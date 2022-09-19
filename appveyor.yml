@@ -34,8 +34,8 @@ on_failure:
   - appveyor PushArtifact Testing.zip
 
 on_success:
-  - 7z a openssl.zip apps\openssl\Release\*
-  - appveyor PushArtifact openssl.zip
+  - 7z a apps\openssl\Release\openssl.zip *.exe
+  - appveyor PushArtifact apps\openssl\Release\openssl.zip
 
 artifacts:
   - path: build
