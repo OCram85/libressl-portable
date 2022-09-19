@@ -33,10 +33,10 @@ on_failure:
   - 7z a Testing.zip Testing
   - appveyor PushArtifact Testing.zip
 
-on_success:
-  - 7z a apps\openssl\Release\openssl.zip *.exe
-  - appveyor PushArtifact apps\openssl\Release\openssl.zip
-
 artifacts:
   - path: build
+    type: zip
+
+  - path: apps\openssl\Release\openssl.exe
+    name: openssl
     type: zip
