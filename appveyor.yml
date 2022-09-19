@@ -40,3 +40,15 @@ on_success:
 artifacts:
   - path: build
     type: zip
+
+deploy:
+  - provider: GitHub
+    release: "libressl-v$(APPVEYOR_REPO_TAG_NAME)"
+    description: "Windows portable version (X64/Static)"
+    auth_token:
+      secure: PD+DR9Pb8syGAOUjJ6Y5d07AXR6btDzWreuPKcAOwxgANFcIrhcaABSHvsju+nrI
+    artifact: openssl.zip
+    draft: true
+    prerelease: true
+    on:
+      APPVEYOR_REPO_TAG: true
