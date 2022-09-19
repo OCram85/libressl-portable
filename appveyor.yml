@@ -26,8 +26,9 @@ before_build:
 build_script:
   - cmake --build . --config %CONFIG%
 
-test_script:
-  - ctest -C %CONFIG% --timeout 150 --output-on-failure
+# disable test for debug
+#test_script:
+#  - ctest -C %CONFIG% --timeout 150 --output-on-failure
 
 on_failure:
   - 7z a Testing.zip Testing
