@@ -33,7 +33,7 @@ on_failure:
   - 7z a Testing.zip Testing
   - appveyor PushArtifact Testing.zip
 
-on_success:
+after_build:
   - 7z a openssl.zip %APPVEYOR_BUILD_FOLDER%\build\apps\openssl\Release\openssl.exe
   - appveyor PushArtifact openssl.zip
 
