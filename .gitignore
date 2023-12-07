@@ -27,11 +27,18 @@
 *.gcov
 *.gcda
 
+# mandoc stuff
+links
+mandoc.db
+
 # Autotools stuff
 .deps
 .dirstamp
 Makefile
 Makefile.in
+
+# CMake stuff
+build
 
 # Libtool stuff
 .libs
@@ -55,6 +62,7 @@ x509v3.cnf
 test-driver
 *.log
 *.trs
+tests/*.crl
 tests/aes_wrap*
 tests/arc4random_fork*
 tests/asn1api*
@@ -62,20 +70,41 @@ tests/asn1basic*
 tests/asn1complex*
 tests/asn1evp*
 tests/asn1object*
+tests/asn1oct*
 tests/asn1string_copy*
 tests/asn1_string_to_utf8*
 tests/asn1time*
 tests/asn1x509*
+tests/bio_asn1*
+tests/bio_chain*
+tests/bio_host*
+tests/bio_mem*
 tests/bnaddsub*
+tests/bn_add_sub*
+tests/bn_cmp*
+tests/bn_convert*
+tests/bn_gcd*
 tests/bn_isqrt*
+tests/bn_mod_exp*
+tests/bn_mod_exp_zero*
 tests/bn_mod_exp2_mont*
+tests/bn_mod_inverse*
 tests/bn_mod_sqrt*
+tests/bn_mont*
 tests/bn_primes*
+tests/bn_print*
 tests/bn_rand_interval*
+tests/bn_shift*
 tests/bn_to_string*
+tests/bn_unit*
+tests/bn_word*
+tests/callback*
 tests/cipher*
 tests/constraints*
+tests/ctlog.conf
+tests/*.crt
 tests/ec_point_conversion*
+tests/ecc_cdh*
 tests/evp_pkey_check*
 tests/evp_pkey_cleanup*
 tests/explicit_bzero*
@@ -83,11 +112,13 @@ tests/freenull*
 tests/gost2814789t*
 tests/key_schedule*
 tests/mont*
+tests/policy*
 tests/rfc3779*
 tests/rfc5280time*
 tests/ssl_get_shared_ciphers*
 tests/ssl_methods*
 tests/ssl_set_alpn_protos*
+tests/ssl_verify_param*
 tests/ssl_versions*
 tests/string_table*
 tests/timingsafe*
@@ -102,6 +133,7 @@ tests/testssl
 tests/*.txt
 tests/compat/*.c
 tests/verify*
+tests/x509_asn1*
 tests/x509_info*
 tests/x509attribute*
 tests/x509name*
@@ -114,6 +146,15 @@ tests/server.c
 tests/util.c
 tests/valid_handshakes_terminate*
 tests/handshake_table*
+
+# benchmarks, tests with external dependencies
+tests/bn_general*
+tests/bn_mul_div*
+tests/expirecallback*
+tests/wycheproof-primes*
+
+# update.sh creates this for some reason
+tests/empty.c
 
 # ctags stuff
 TAGS
@@ -145,6 +186,7 @@ stamp-h1
 stamp-h2
 
 include/openssl/Makefile.am
+include/arch
 
 VERSION
 crypto/VERSION
@@ -152,10 +194,13 @@ ssl/VERSION
 tls/VERSION
 libtls-standalone/VERSION
 
+ssl/hidden
 ssl/*.c
 ssl/*.h
+ssl/*.mk
 tls/*.c
 tls/*.h
+tls/*.mk
 include/pqueue.h
 include/tls.h
 include/openssl/*.h
@@ -212,3 +257,7 @@ openbsd/
 *.tar.gz
 man/Makefile.am
 man/mandoc.db
+
+# JetBrains IDEs
+.idea/
+*.iml
